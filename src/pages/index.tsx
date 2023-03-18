@@ -5,7 +5,12 @@ import styles from "@/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
+
 export default function Home() {
+  const { width, height } = useWindowSize();
+
   return (
     <>
       <Head>
@@ -14,9 +19,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>Happy Birthday Quyen!</div>
-      </main>
+      <Confetti width={width} height={height} />
+      <div style={{ textAlign: "center", margin: "auto", fontSize: 50 }}>
+        Happy Birthday Quyen!
+      </div>
     </>
   );
 }
